@@ -1,23 +1,4 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form method="post" enctype="multipart/form-data">
-        <laber>загружай файл:</laber><br/>
-        <input type="file" name="file"><br/>
-        <laber>отправить</laber><br/>
-        <input type="submit" name="ok"><br/>
-    </form>
-  
 <?php
-// $mysqli = new mysqli('localhost','root','','baza');
-// $mysqli-> query("SET NAMES 'utf8'");
-// $mysqli->close();
 $name = $_FILES['file']['name'];
 $name.=rand(0000,9999);
 $pth = $_FILES['file']['tmp_name'];
@@ -41,6 +22,22 @@ else{
     
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <laber>загружай файл:</laber><br/>
+        <input type="file" name="file"><br/>
+        <laber>отправить</laber><br/>
+        <input type="submit" name="ok"><br/>
+    </form>
+  
+
    
 </body>
 </html>
