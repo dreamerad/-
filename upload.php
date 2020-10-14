@@ -1,4 +1,4 @@
-<html>
+fit<html>
 <h1>Загрузка файлов</h1>
 <?php
 if($info){
@@ -13,7 +13,7 @@ if($info){
 
 <?php
 $size = $_FILES['filename']['size']; // Размер
-$name = $_FILES['filename']['name']; // Название файла
+$name = $_FILES['filename']['name']; // Название файла/
 $dir = $_FILES['filename']['tmp_name']; // Путь файла ПК
 $type = $_FILES['filename']['type'];  // Тип файла ( не формат )
 $blacklist = [".php", ".phtml", ".bmp", ".html", ".html", ".xml", ".php3", ".php4", "pdf"]; // Массив запрещенных расширений
