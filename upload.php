@@ -20,7 +20,7 @@ $blacklist = [".php", ".phtml", ".bmp", ".html", ".html", ".xml", ".php3", ".php
 
 // 1кб = 1024 б && 1 мб = 1024кб // 2мб =  2 * 1024 * 1024
 
-//}else{
+
 foreach  ($blacklist as $item) { // Перебор запрещенных расширений
     if (preg_match("/$item\$/i", $name)){ // Есть ли элемент из массива в названии
         echo "Ошибка, загрузить можно только картинку"; return false;
@@ -35,6 +35,8 @@ if(move_uploaded_file($dir, 'img/' .$name)){ // $name нужна для сохр
     echo "Имя: " .$name."</br>";
     echo "Размер: " .$size." байт </br>";
 
-}}}
+}
+}
+}
 
 ?>
