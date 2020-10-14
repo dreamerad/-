@@ -1,4 +1,4 @@
-fit<html>
+<html>
 <h1>Загрузка файлов</h1>
 <?php
 if($info){
@@ -24,6 +24,7 @@ $blacklist = [".php", ".phtml", ".bmp", ".html", ".html", ".xml", ".php3", ".php
 foreach  ($blacklist as $item) { // Перебор запрещенных расширений
     if (preg_match("/$item\$/i", $name)){ // Есть ли элемент из массива в названии
         echo "Ошибка, загрузить можно только картинку"; return false;
+        exit();
     }
 }
 if($size > 2 * 1024 * 1024){
