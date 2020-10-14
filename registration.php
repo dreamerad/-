@@ -1,5 +1,6 @@
 <?php
 session_start();
+require 'connect.php';
 // Переменные
 $login = (trim($_POST['login']));
 $email = (trim($_POST['email']));
@@ -7,7 +8,6 @@ $password = $_POST['password'];
 $password2 = $_POST['password2'];
 $sex = $_POST['sex'];
 $error = [];
-$sql = mysqli_query($con, "SELECT FROM user WHERE login = '$login' OR email = '$email'");
 
 //////////////////////////////
 
@@ -18,9 +18,16 @@ if(strlen($login) <= 15){ // Длина логина
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             if($password == $password2)
             {
-                if($sql > 0){
-                    echo "Такой пользователь или email уже есть";
+                //WHERE `login` = '$login', `email` = '$email'
+                $res=mysqli_query($con,"SELECT `login` FROM `users` WHERE `login`= 'admin' ");
+                $data=mysqli_fetch_array($res);
+                if(empty($login))
+                {
+                    die("Такой логин уже существует!");
+                }else{
+                    die("все ок");
                 }
+             
                 //password_hash($password, PASSWORD_DEFAULT);
 
             }else{
@@ -47,4 +54,3 @@ if(strlen($login) <= 15){ // Длина логина
 
     //var_dump(var_dump($login));
 }}
-
