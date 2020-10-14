@@ -19,15 +19,17 @@ if(strlen($login) <= 15){ // Длина логина
             if($password == $password2)
             {
                 //WHERE `login` = '$login', `email` = '$email'
-                $res=mysqli_query($con,"SELECT `login` FROM `users` WHERE `login`= 'admin' ");
-                $data=mysqli_fetch_array($res);
-                if(empty($login))
-                {
-                    die("Такой логин уже существует!");
-                }else{
-                    die("все ок");
-                }
-             
+                //$query = "SELECT * FROM users WHERE login = `".$login."`";
+            $sql = mysqli_query($con, "SELECT COUNT(`id`) FROM `users` WHERE `login` = '".$login."'"); 
+            if (mysqli_fetch_array($sql) > 0){
+                echo "есть такой";
+            }else{
+                echo "Нету";
+            }
+                
+                
+               
+            
                 //password_hash($password, PASSWORD_DEFAULT);
 
             }else{
@@ -54,3 +56,6 @@ if(strlen($login) <= 15){ // Длина логина
 
     //var_dump(var_dump($login));
 }}
+
+
+
