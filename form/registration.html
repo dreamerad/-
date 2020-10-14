@@ -5,16 +5,18 @@
 <body>
     <form action = "../registration.php" method="POST">
 <label>Логин: </label>
-<input type="text"></br>
+<input type="text" name = "login"></br>
 <label>Пароль: </label>
-<input type="password"></br>
+<input type="password" name="password"></br>
 <label>Подтверждение пароля: </label>
-<input type="password"></br>
+<input type="password" name="password2"></br>
 <label>Email: </label>
-<input type="email"></br>
+<input type="email" name="email"></br>
 <label>Пол: </label>
-<input type="radio" name="1">
-<input type="radio" name="2"></br>
+<select name = "sex">
+<option type="radio" name="1">Мужской</option>
+<option type="radio" name="2">Женский</option></br>
+</select>
 <input type="submit" name = "ok" value="Регистрация">
 
 </form>
