@@ -1,6 +1,12 @@
 <?php
 session_start();
-require 'connect.php';
+require 'config.php';
+$con = mysqli_connect(HOST, USER, PASSWORD, DB_NAME);
+
+if (!$con){
+    echo 'Отсутствует подключение к базе данных' .mysqli_error($con);
+}
+//require 'connect.php';
 // Переменные
 $login = (trim($_POST['login']));
 $email = (trim($_POST['email']));
@@ -18,18 +24,27 @@ if(strlen($login) <= 15){ // Длина логина
         if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             if($password == $password2)
             {
-                //WHERE `login` = '$login', `email` = '$email'
-                //$query = "SELECT * FROM users WHERE login = `".$login."`";
-            $sql = mysqli_query($con, "SELECT COUNT(`id`) FROM `users` WHERE `login` = '".$login."'"); 
-            if (mysqli_fetch_array($sql) > 0){
-                echo "есть такой";
-            }else{
-                echo "Нету";
-            }
+                $sql = "SELECT login, email FROM `accounts` WHERE `login` = '$login' OR `email` = '$email'";
+                $query = mysqli_query($con, $sql);
+                $array = mysqli_fetch_array($query);
+                if($array <= 0){
+                    
+                    $sqlinsert = "INSERT INTO `accounts`(`login`, `password`, `email`) VALUES ('$login', '$password', '$email')"; 
+                    // добавить в запрос пол и переоформить условия и вывод ошибок
+                    $result2 = mysqli_query($con, $sqlinsert);
+                    if($result2){
+                        echo "нЕУспешно";
+                    }
+                        //echo "Error! ----> ".array_shift($error);
+                        var_dump($result2);
+                    
+var_dump($error);
+                }else{
+                    $error[] = "Пользователь с таким логином уже зарегистрирован";
+                    echo "Такой чел уже есть в системе";
+
+                }
                 
-                
-               
-            
                 //password_hash($password, PASSWORD_DEFAULT);
 
             }else{
