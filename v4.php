@@ -24,9 +24,8 @@ function rest ($dates)
 {
     while(($row = $dates->fetch_assoc()) != false)
     {
-       print_r($row['login'] . "<br>")  ;
-    }
-      
+    print_r($row['login'] . "<br>")  ;
+    } 
     echo "функция работает"   ;         
 }
 
