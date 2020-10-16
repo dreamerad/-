@@ -1,10 +1,6 @@
 <html>
 <h1>Загрузка файлов</h1>
-<?php
-if($info){
-    echo "$info";
-}
-?>
+
 <form method="POST"  name = 'upload_file' enctype="multipart/form-data">
 <input type="file" name = 'filename'>
 <input type = 'submit' value = 'Загрузить'>

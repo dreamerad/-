@@ -32,7 +32,7 @@ if(strlen($login) <= 15){ // Длина логина
                     $sqlinsert = "INSERT INTO `accounts`(`login`, `password`, `email`, `sex`) VALUES ('$login', '$password', '$email', '$sex')"; 
                     $result2 = mysqli_query($con, $sqlinsert);
                     $_SESSION['login'] = $login;
-                    header('Location: /user.php');
+                    header('Location: /-/user.php');
 
                     echo "Вы успешно зарегистрировались в нашей системе";
                 }else{
@@ -56,3 +56,29 @@ if(strlen($login) <= 15){ // Длина логина
 }else{
     echo "Заполните все поля";
 }}
+?>
+<html>
+<head>Регистрация</head>
+<meta charset="utf-8">
+
+<body>
+    <form method="POST">
+<label>Логин: </label>
+<input type="text" name = "login"></br>
+<label>Пароль: </label>
+<input type="password" name="password"></br>
+<label>Подтверждение пароля: </label>
+<input type="password" name="password2"></br>
+<label>Email: </label>
+<input type="email" name="email"></br>
+<label>Пол: </label>
+<select name = "sex">
+<option type="radio" name = "sex" value="1">Мужской</option>
+<option type="radio" name = "sex" value="2">Женский</option></br>
+</select>
+<input type="submit" name = "ok" value="Регистрация">
+
+</form>
+
+</body>
+</html>
