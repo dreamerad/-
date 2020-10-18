@@ -9,17 +9,19 @@ if(!empty($_POST)){
     if(empty($_POST['user_name'])){
         $errors[] = 'Заполните поле Логин';
     }
+    if(empty($_POST['email'])){
+        $errors[] = 'Заполните поле Email';
+    }
     if(empty($_POST['last_name'])){
         $errors[] = 'Заполните поле Имя';
     }if(empty($_POST['first_name']))
     {
         $errors[] = 'Заполните поле Фамилия';
-    }if(empty($_POST['email'])){
-        $errors[] = 'Заполните поле Email';
     }
     if(empty($_POST['password'])){
         $errors[] = 'Заполните поле Пароль';
-    }if(empty($_POST['password2']))
+    }
+    if(empty($_POST['password2']))
     {
         $errors[] = 'Заполните поле Подтвердить пароль';
     }
@@ -40,14 +42,14 @@ if(!empty($_POST)){
         $errors[] = 'Пароли не совпадают';
     }
     if(empty($errors)){
-        $stat = $dbconn->prepare('INSERT INTO users(`user_name`, `email`, `first_name`, `last_name`, `password`) VALUES(:username, :email, :first_name, :last_name, :password)');
-        $stat->execute(array(
+        $stat = $dbconn->prepare('INSERT INTO users(`user_name`, `email`, `first_name`, `last_name`, `password`) VALUES (:user_name, :email, :first_name, :last_name, :password)');
+        $stat->execute([
         'user_name' => $_POST['user_name'],
         'email' => $_POST['email'], 
         'last_name' => $_POST['last_name'],
         'first_name' => $_POST['first_name'],
-        'password_name' => password_hash($_POST['password'], PASSWORD_DEFAULT)));
-        //header('Location: /login.php');
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)]);
+        header('Location: /login.php');
     }
 }
 
