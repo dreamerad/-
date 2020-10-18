@@ -1,7 +1,9 @@
 <?php
 require 'config.php';
-$con = mysqli_connect(HOST, USER, PASSWORD, DB_NAME);
 
-if (!$con){
-    echo 'Отсутствует подключение к базе данных' .mysqli_error($con);
+$dsn = "mysql:host = " .HOST. ";dbname = " .DB_NAME. ";charset =" .CHARSET;
+try{
+    $dbconn = new PDO($dsn, USER, PASSWORD);
+} catch(PDOException $e){
+    echo 'Подключение не удалось:' .$e->getMessage();
 }

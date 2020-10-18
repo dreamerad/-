@@ -1,84 +1,90 @@
 <?php
-session_start();
-?>
-<?php
-require 'config.php';
 require 'connect.php';
-// Переменные
-$login = (trim($_POST['login']));
-$email = (trim($_POST['email']));
-$password = $_POST['password'];
-$password2 = $_POST['password2'];
-$sex = $_POST['sex'];
-$error = [];
-//////////////////////////////
 
-if($_POST['ok']){
-if(!empty($login) && !empty($email) && !empty($password) && !empty($password2)){ // Проверки на не пустоту
-if(strlen($login) <= 15){ // Длина логина
-    if(strlen($email) <= 30){ // Длина email
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-            if($_POST['sex'] == 1){
-            $pol = 1; // Мужской пол
-            }else{ 
-            $sex = 2;} // Женский пол
-            if($password == $password2)
-            {
-                $sql = "SELECT login, email FROM `accounts` WHERE `login` = '$login' OR `email` = '$email'"; // Сравнение логина и пароль
-                $query = mysqli_query($con, $sql);
-                $array = mysqli_fetch_array($query);
-                if($array == 0){
-                    $password = password_hash($password,PASSWORD_DEFAULT); // Хеширование
-                    $sqlinsert = "INSERT INTO `accounts`(`login`, `password`, `email`, `sex`) VALUES ('$login', '$password', '$email', '$sex')"; 
-                    $result2 = mysqli_query($con, $sqlinsert);
-                    $_SESSION['login'] = $login;
-                    header('Location: /-/user.php');
-
-                    echo "Вы успешно зарегистрировались в нашей системе";
-                }else{
-                        
-                    
-                    echo "Пользователь с таким логином уже зарегистрирован";
-                }
-            }else{
-                echo "Введённые пароли не совпадают";}
-            
-        }else{
-            echo "Введённая почта введена не верна";
-        }
-    }else{
-    echo "Длина почты должна быть меньше 30 символов";
+if(!empty($_SESSION['user_id'])){
+    header("Location: /index.php");
+}
+$errors = [];
+if(!empty($_POST)){
+    if(empty($_POST['user_name'])){
+        $errors[] = 'Заполните поле Логин';
     }
-}else{
-    echo "Длина логина должна быть меньше 15 символов";
+    if(empty($_POST['last_name'])){
+        $errors[] = 'Заполните поле Имя';
+    }if(empty($_POST['first_name']))
+    {
+        $errors[] = 'Заполните поле Фамилия';
+    }if(empty($_POST['email'])){
+        $errors[] = 'Заполните поле Email';
+    }
+    if(empty($_POST['password'])){
+        $errors[] = 'Заполните поле Пароль';
+    }if(empty($_POST['password2']))
+    {
+        $errors[] = 'Заполните поле Подтвердить пароль';
+    }
+    if(strlen($_POST['login']) > 50)
+    {
+        $errors[] = 'Логин должен быть менее 50 символов';
+    }
+    if(strlen($_POST['last_name']) > 30)    {
+        $errors[] = 'Имя должен быть менее 30 символов';
+    }
+    if(strlen($_POST['first_name']) > 30)    {
+        $errors[] = 'Фамилия должен быть менее 30 символов';
+    }
+    if(strlen($_POST['password']) < 6)    {
+        $errors[] = 'Пароль должен быть более 6 символов';
+    }
+    if($_POST['password'] !== $_POST['password2'])    {
+        $errors[] = 'Пароли не совпадают';
+    }
+    if(empty($errors)){
+        $stat = $dbconn->prepare('INSERT INTO users(`user_name`, `email`, `first_name`, `last_name`, `password`) VALUES(:username, :email, :first_name, :last_name, :password)');
+        $stat->execute(array(
+        'user_name' => $_POST['user_name'],
+        'email' => $_POST['email'], 
+        'last_name' => $_POST['last_name'],
+        'first_name' => $_POST['first_name'],
+        'password_name' => password_hash($_POST['password'], PASSWORD_DEFAULT)));
+        //header('Location: /login.php');
+    }
 }
 
-}else{
-    echo "Заполните все поля";
-}}
+
+
+
+
+
 ?>
-<html>
-<head>Регистрация</head>
-<meta charset="utf-8">
-
+<html><head>
+<title>Гостевая книга</title>
+<link rel="stylesheet" href="indx.css">
+</head>
 <body>
-    <form method="POST">
-<label>Логин: </label>
-<input type="text" name = "login"></br>
-<label>Пароль: </label>
-<input type="password" name="password"></br>
-<label>Подтверждение пароля: </label>
-<input type="password" name="password2"></br>
-<label>Email: </label>
-<input type="email" name="email"></br>
-<label>Пол: </label>
-<select name = "sex">
-<option type="radio" name = "sex" value="1">Мужской</option>
-<option type="radio" name = "sex" value="2">Женский</option></br>
-</select>
-<input type="submit" name = "ok" value="Регистрация">
-
+<div class="handle">
+<h3>Регистрация</h3>
+<form id="fromcha" method = "POST">
+    <?php
+foreach ($errors as $error) :?>
+<p><?php echo $error; ?></p>
+<?php endforeach; ?>
+    <label> Логин: </label></br>
+    <input type="text" name="user_name" ></br>
+    <label> Email: </label>	</br>
+    <input type="text" name="email" >	</br>
+    <label> Имя: </label>	</br>
+    <input type="text" name="last_name" ></br>	
+    <label> Фамилия: </label>	</br>
+    <input type="text" name="first_name" ></br>	
+    <label> Пароль: </label>	</br>
+    <input type="text" name="password" >	</br>
+    <label> Подтвердите пароль: </label>	</br>
+    <input type="text" name="password2" ></br>
+	
+	<input type="submit"  class="inputFrom" name="ok" value="Отправить">
 </form>
+</div>
 
-</body>
-</html>
+
+</body></html>
