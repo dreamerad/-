@@ -76,36 +76,66 @@ print_r($empt->countD) ;
 // }
  
 // print_r(join(', ', $a));
-$massS = ['','g','v','a','e','s','p','q','m'];
+// $massS = ['','g','v','a','e','s','p','q','m'];
 
-function pass ($massS,$num){
-    $passord = '';
-    $i = 0; 
-    $ranN = '';
-    while($i <= $num){ 
-        $ran = rand(1,count($massS)-1);
-        echo "пред ".$ranN.'! <br>';
+// function pass ($massS,$num){
+//     $passord = '';
+//     $i = 0; 
+//     $ranN = '';
+//     while($i <= $num){ 
+//         $ran = rand(1,count($massS)-1);
+//         echo "пред ".$ranN.'! <br>';
 
-                if(empty($ranN)){
-                    $ranN = $ran; 
-                    $passord .= $massS[$ran];  
-                }elseif($ran == $ranN){
+//                 if(empty($ranN)){
+//                     $ranN = $ran; 
+//                     $passord .= $massS[$ran];  
+//                 }elseif($ran == $ranN){
 
-                    echo "ПОВТОР ".$ran. " !";
-                    echo "ПОВТОР ".$ranN. " !";
+//                     echo "ПОВТОР ".$ran. " !";
+//                     echo "ПОВТОР ".$ranN. " !";
 
-                               continue;
+//                                continue;
 
-                }else{
-                $passord .= $massS[$ran];
-                $ranN = $ran; 
-                }
+//                 }else{
+//                 $passord .= $massS[$ran];
+//                 $ranN = $ran; 
+//                 }
             
         
-        $i++;
-    }
-    return $passord;
-    }
+//         $i++;
+//     }
+//     return $passord;
+//     }
 
-echo pass($massS,5);
-echo"\n!". $massS[8];
+// echo pass($massS,5);
+// echo"\n!". $massS[8];
+
+function sumSred(...$cu){
+       $sum = 0;
+       $countE = count($cu)-1;
+       $i3 = 0;
+       while($i3 < $countE){
+            $sum += $cu[$i3];
+            $i3++;
+       }
+       return round($sum/$countE);
+}
+echo sumSred(323,242,475,234);
+
+function S(){
+    $sy = 0;
+    $si = 1;
+    // echo " " . 1;
+        while($si < 112){
+            echo' '. $si . ' ';
+            $si += 3;
+            $sy += $si ;
+        }
+        return $sy +  1;
+}
+echo S();
+echo date_default_timezone_get('').'<br>';
+echo "<pre>".
+print_r(localtime(time(),true)) ;
+echo date('P');
+echo "</pre>";
