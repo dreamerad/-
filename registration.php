@@ -1,6 +1,8 @@
 <?php
 require 'connect.php';
+session_start();
 
+// unset($_SESSION['user_id']);
 if(!empty($_SESSION['user_id'])){
     header("Location: /index.php");
 }
@@ -48,8 +50,8 @@ if(!empty($_POST)){
         'email' => $_POST['email'], 
         'last_name' => $_POST['last_name'],
         'first_name' => $_POST['first_name'],
-        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)]);
-        header('Location: /login.php');
+        'password' => $_POST['password']]);
+        header('Location: /-/login.php');
     }
 }
 
@@ -68,6 +70,7 @@ if(!empty($_POST)){
 <h3>Регистрация</h3>
 <form id="fromcha" method = "POST">
     <?php
+
 foreach ($errors as $error) :?>
 <p><?php echo $error; ?></p>
 <?php endforeach; ?>
