@@ -9,6 +9,8 @@ rest($date);
 $log = $_POST['login'];
 $pass = $_POST['pass'];
 $text = $_POST['text'];
+$u = 120;
+echo is_numeric($u);
 
 if(isset($_POST['ok'])){
     // if(isset($_POST['login'])){
