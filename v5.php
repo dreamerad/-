@@ -139,3 +139,41 @@ echo "<pre>".
 print_r(localtime(time(),true)) ;
 echo date('P');
 echo "</pre>";
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+        <input type="text" name="text">
+        <input type="submit" value='поиск' name="ok">
+    </form>
+</body>
+</html>
+<?php
+    function quer(){
+        $con = new mysqli('localhost','root','','proba') or die('no');
+        $con->query("SET NAMES 'utf8'");
+        $metd = $_POST['text'];
+        $ok = $_POST['ok'];
+        if(isset($ok)){
+        $sql = "SELECT name , saerch FROM tabls WHERE name = '$metd' ";
+        $resuit = $con->query($sql);
+        while(($o = $resuit->fetch_assoc()) != false){
+             printf($o['name'].' '.$o['saerch']. ' ');
+        }
+        }else{
+            echo '';
+        
+         
+        }
+         $con->close();
+    };
+    quer();
+
+?>
