@@ -20,7 +20,11 @@ if(!empty($_POST)){
         $stat = $dbconn->prepare('SELECT id FROM users WHERE (user_name = :user_name OR email = :user_name) AND password = :password'); 
         $stat->execute([
             'user_name' => $_POST['user_name'],
+<<<<<<< HEAD
             'password' => $_POST['password']
+=======
+            'password' => password_verify($_POST['password']);
+>>>>>>> 23feee05b5e26e63c71f9f174028afeb75c9257c
         ]);
         $id = $stat -> fetchColumn();
         if(!empty($id)){
