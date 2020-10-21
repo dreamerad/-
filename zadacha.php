@@ -21,6 +21,15 @@ echo $string .'</br>';
     
 }
 }
+$array = array(1,1,1,2,2,2,3,3);
+foreach ($array as $val)
+{
+  if ( !$pr[$val] )
+  {
+    $pr[$val] = $val;
+    echo $pr[$val]. ' <br /> ';
+  }
+}
 
 ?>
 
