@@ -153,20 +153,35 @@ echo "</pre>";
         <input type="text" name="text">
         <input type="submit" value='поиск' name="ok">
     </form>
-</body>
-</html>
+    <form method="POST">
+        <select name="select">
+            <option>Турция</option>
+            <option>Египет</option>
+            <option>Италия</option>
+        </select></br></br>
+        <label for="num">Сколько у вас свободных дней?</label></br></br>
+        <input type="number" name="num" max="28" min="1">
+        </br></br>
+        <label for="discount "> у вас есть скидка?</label>
+        <input type="checkbox"  name="discount">
+        <input type="submit" value='поиск' name="okOne">
+    </form>
+  
+
 <?php
     function quer(){
         $con = new mysqli('localhost','root','','proba') or die('no');
         $con->query("SET NAMES 'utf8'");
         $metd = $_POST['text'];
         $ok = $_POST['ok'];
-        if(isset($ok)){
-        $sql = "SELECT name , saerch FROM tabls WHERE name = '$metd' ";
-        $resuit = $con->query($sql);
-        while(($o = $resuit->fetch_assoc()) != false){
-             printf($o['name'].' '.$o['saerch']. ' ');
-        }
+
+            if(isset($ok)){
+            $sql = "SELECT name , saerch FROM tabls WHERE name = '$metd' ";
+            $resuit = $con->query($sql);
+
+                    while(($o = $resuit->fetch_assoc()) != false){
+                        printf($o['name'].' '.$o['saerch']. ' ');
+                    }
         }else{
             echo '';
         
@@ -176,4 +191,67 @@ echo "</pre>";
     };
     quer();
 
-?>
+        function countries(){
+            $select = $_POST['select'];
+            $diC = $_POST['discount'];
+            $nums = $_POST['num'];
+            $okOne = $_POST['okOne'];
+            if(isset($okOne)){
+                $snum = $nums * 400;
+                if($select == 'Египет'){
+                    $snum =$snum + ($snum*(10/100));
+                }elseif($select == 'Италия'){
+                    $snum = $snum + ($snum*(12/100));
+                }
+                if($diC == TRUE){
+                    $snum = $snum - ($snum*(5/100));
+                }
+                return $snum;
+            }
+        }
+        echo "Ваша сумма отдыха будет составлять : ".countries() . " рублей";
+
+   
+     echo date(" j.m.y ", filectime("v4.php"));
+     function Vova($numer){
+         echo "</br>".date("N", time())."</br>";
+         echo date("N", time()+86400*$numer);
+         
+     }
+     echo Vova(3);
+     function Zadacha2(){
+         $text = $_POST['vtext'];
+         $btn = $_POST['okei'];
+         $textAr = " </br></br></br>Lorem color ipsum dolor sit. color";
+         if(isset($btn)){
+            //  $u = preg_match("/$text/gi",$textAr);
+            // echo $u ; 
+            // strpos($text,$textAr);
+           $te = str_replace($text,"<mark>$text</mark>",$textAr);
+           return $te;
+         }
+         
+     } echo Zadacha2();
+    
+     function z20(){
+         $arrey = array(1,1,1,2,2,2,2,3);
+         foreach($arrey as $index ){
+             
+             if(!$arrey[$index]){
+                $arrey[$index] = $index;
+                echo  $arrey[$index] . '</br>';
+                 return $arrey;
+             }
+            
+         }
+        
+     }
+    print_r(z20());
+?>  </br></br><form method="POST"> 
+    
+        <input type="text" name = 'vtext'>
+        <input type="submit" value="найти" name="okei"></br>
+        </br> <textarea name="arw">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eius accusamus, deleniti quaerat facere deserunt. Suscipit doloribus iure repellendus cum.</textarea>
+    </form>
+</body>
+</html>
