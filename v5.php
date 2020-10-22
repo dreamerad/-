@@ -240,7 +240,7 @@ echo "</pre>";
              if(!$arrey[$index]){
                 $arrey[$index] = $index;
                 echo  $arrey[$index] . '</br>';
-                 return $arrey;
+                
              }
             
          }
@@ -253,5 +253,76 @@ echo "</pre>";
         <input type="submit" value="найти" name="okei"></br>
         </br> <textarea name="arw">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos asperiores eius accusamus, deleniti quaerat facere deserunt. Suscipit doloribus iure repellendus cum.</textarea>
     </form>
+    <?php
+    ## задача 1 
+    $arrat = [12,34,64,-3,2,-23,1338,332,23,-45];
+    $sum2 = 0;
+    $numer = 1;
+    foreach($arrat as $elem){
+        if($elem >= 0 && $elem % 2 == 0){
+
+         echo " </br>".$numer."  итерация " .$sum2 += $elem. "</br> " ;
+         $numer++;
+        }
+        // echo $sum2;
+    }
+    echo "</br>Сумма =  ".$sum2;
+    ##
+    ## задача 2
+    $array3 = [1,2,3,44,44];
+    $countArray3 = (array_count_values($array3)) ;
+    $nom21 = (int) max($countArray3) ;
+    $result = '';
+    foreach($countArray3 as $key => $val){
+        if($val == $nom21){
+            $result .= $key;
+        }
+    }
+    echo "</br> Самое повторяемое число: ". $result;
+    ##
+    ?>
+    </br>
+    </br>
+    <form method='POST'>
+     <input type = "number" name = "NuM" min = '0' max = '100' >
+     <input type = "submit" value = "Дать ответ" name="okNuM">
+    </form>
+    <?php
+      
+       $RAN = rand(0,100);
+                                function Gamer( $RAN)
+                                {            $ansver = $_POST['NuM'];
+                                             $btn1 = $_POST['okNuM'];
+                                                            
+                                                            $popt = 0;
+                                                            
+                                                              if(isset($btn1)){
+                                                                  while(true){
+                                                                if($popt == 11){
+                                                                    echo "Ваши попытки закончились";
+                                                                    
+                                                                }
+
+                                                                if($ansver == $RAN){
+                                                                    echo  "Вы угадали"; 
+                                                                    return;
+                                                                   
+                                                                }
+                                                                elseif($ansver < $RAN){
+                                                                    echo "Число Больше :" . $ansver;
+                                                                    $popt++;
+                                                                } 
+                                                                elseif($ansver > $RAN){
+                                                                    echo "Число меньше :" . $ansver;
+                                                                    $popt++;
+                                                                }
+                                                    }  
+                                                            }
+                                                    
+                                       
+                                        echo " " . $RAN;
+                                }
+           echo  Gamer( $RAN);
+    ?>
 </body>
 </html>
