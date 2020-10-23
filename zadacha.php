@@ -28,15 +28,15 @@ echo "Число " .$result. " Повторяется " .$max. " раз</br>";
 // Угадай число
 
 
-if (isset($_POST["guess"])) { 
+// if (isset($_POST["guess"])) { 
 
 
 
-  $number = $_POST["number"]; //В переменную $number записываем данные полученные из текстового поля с именем number 
+//   $number = $_POST["number"]; //В переменную $number записываем данные полученные из текстового поля с именем number 
   
   
   
-  $hidden_number = $_POST["hidden_number"]; //В переменную $hidden_number записываем данные полученные из скрытого поля с именем $hidden_number 
+//   $hidden_number = $_POST["hidden_number"]; //В переменную $hidden_number записываем данные полученные из скрытого поля с именем $hidden_number 
   
   
   
@@ -44,35 +44,72 @@ if (isset($_POST["guess"])) {
   
   
  
-  if ($number == $_POST["hidden_number"]) { 
+//   if ($number == $_POST["hidden_number"]) { 
   
-  //Если числа равны, то мы выиграли
-  
-  
-  $hidden_number = rand(0, 50);
-  
-   } 
-  
-  } else { 
-  
-  $number = 0; 
-  
-  $hidden_number = rand(0, 50); //Загадываем число 
-  
-  } 
+//   //Если числа равны, то мы выиграли
   
   
-  echo '<form action="?" method="POST">
+//   $hidden_number = rand(0, 50);
   
-  <input type="text" value="'.$number.'" name="number" /> <br />
+//    } 
   
-  <input type="submit" name="guess" value="Играть" /><br/>
+//   } else { 
   
-  <input type="hidden" name="hidden_number" value="'.$hidden_number.'" />
+//   $number = 0; 
   
-  </form>';
+//   $hidden_number = rand(0, 50); //Загадываем число 
   
+//   } 
+  
+  
+//   echo '<form action="?" method="POST">
+  
+//   <input type="text" value="'.$number.'" name="number" /> <br />
+  
+//   <input type="submit" name="guess" value="Играть" /><br/>
+  
+//   <input type="hidden" name="hidden_number" value="'.$hidden_number.'" />
+  
+//   </form></br>';
+// Генератор
+  function generation($from, $to){
+    $i = 0; // ERROR - бесконечный цикл
+    for ($from; $to; $i++){
+      echo "$i -";
+      yield $i;  // Запись идёт в "Массив"
+    }
+  }
+  foreach (generation(1,10) as $value){
+    echo 'Удвоим ' .($value *2). '</br>'; break;
+}
+
+// Пример с JSon
+// Кодирование
+$array = [
+  'name' => 'Владик',
+  '$age' => '19',
+  'email' => 'email тут'
+];
+$content = json_encode($array, JSON_UNESCAPED_UNICODE); // 2ой параметр меняет кодировку для кирилицы 
+
+echo '<pre>';
+var_dump($content);
+echo '</pre>';
+
+// Декодирование, чтение из файла
+$url = '1.json'; // Путь файла
+$content = file_get_contents($url); // Читаем содержимое файла целиком
+$content = json_decode($content, true); // 2ой параметр указывает на работу с ассоциативным массивом
+echo '<pre>';
+var_dump($content);
+echo '</pre>';
+
+
+
+
+
 ?>
+
 
 
 
