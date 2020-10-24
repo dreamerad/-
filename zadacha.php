@@ -104,7 +104,11 @@ echo '<pre>';
 var_dump($content);
 echo '</pre>';
 
-
+$var1 = "Hello";
+$var2 = "hello222";
+$var3 = 'много всякого бреда но меняем слово Hello';
+$s = str_replace($var1, $var2, $var3);
+echo $s;
 
 
 

@@ -323,6 +323,7 @@ echo "</pre>";
                                         echo " " . $RAN;
                                 }
            echo  Gamer( $RAN);
+           // Пасхалка))
     ?>
 </body>
 </html>

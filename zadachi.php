@@ -1,5 +1,5 @@
 <?php
-// Генератор паролейпше
+// Генератор паролей
 function gen($length = 6){
 $password = '';
 $arr = array(
@@ -11,7 +11,7 @@ $arr = array(
 );
 
 for ($i = 0; $i < $length; $i++) {
-    $index = rand(0, count($arr)-1);
+    $index = rand(0, count($arr)-1); // Индексируем
     $password.= $arr[$index];
 }
 return $password;
