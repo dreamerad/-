@@ -106,9 +106,58 @@ echo '</pre>';
 
 $var1 = "Hello";
 $var2 = "hello222";
-$var3 = 'много всякого бреда но меняем слово Hello';
+$var3 = 'много всякого бреда но меняем слово Hello</br><hr>';
 $s = str_replace($var1, $var2, $var3);
 echo $s;
+
+// Чтение CSV файла
+$fopen = fopen('test.csv', 'r');
+if(($fopen) !== false){
+  while(($data = fgetcsv($fopen,100,';')) !== false) // $data - вычитанная строка
+{
+  $out = "";
+  for($i=0; $i < count($data); $i++)
+  {
+    $out .= $data[$i]. " ";
+  }
+  echo $out;
+}
+fclose($fopen);
+echo "</br>";
+
+}
+
+// Чтение CSV файла через массив 
+$fopen = fopen('test.csv', 'r');
+$res = [];
+if(($fopen) !== false){
+  while(($data = fgetcsv($fopen,100,';')) !== false) // $data - вычитанная строка
+{
+ $res[] = $data;
+ foreach ($data as $val){
+   echo $val;
+ }
+}
+fclose($fopen);
+echo "</br>";
+}
+
+// Запись в CSV файл
+
+$a = [
+  [1,2,3],
+  [1,2,3],
+  [3,2,1]
+  ];
+
+$fopen = fopen('test.csv', 'w');
+foreach($a as $line){ // в $line помещаем $a
+fputcsv($fopen, $line, ';');
+
+}
+fclose($fopen);
+
+
 
 
 
