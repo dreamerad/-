@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+$microtime = microtime(true); // Для определения времени загрузки скрипта
 // сумма четных положительных чисел массива
 $array = [2,2,3,4,5,122,1,3,4,4,2,2,2,2];
 $sum = 0;
@@ -156,6 +157,29 @@ fputcsv($fopen, $line, ';');
 
 }
 fclose($fopen);
+
+// Запись в TXT файл
+$file = 'test.txt';
+$fopen = fopen($file, 'a');
+$string = 'ура';
+fseek($fopen, 1);
+//fwrite($fopen, $string);
+fclose($fopen);
+
+// Регулярные выражения
+$file = 'wqeqwe.png';
+echo preg_replace("/.*?\./", '', $file); // Вырезка расширения файла
+preg_match("/[^(\w)|(\@)|(\.)|(\-)]/",$email); // Проверка email
+preg_match('/^\d+$/', $var); // Проверка на число
+preg_match("/(^[a-zA-Z0-9]+([a-zA-Z\_0-9\.-]*))$/" , $filename)==NULL; // Проверка имени файла
+preg_match("/(.)\\1\\1/",$string); // Проверка на повторение символов, более 3х раз
+$text = preg_replace('#(\.|\?|!|\(|\)){3,}#', '\1\1\1', $text); // Удаление многократно повторяющихся зн.препинания
+// Вывод файлов с помощью преопределенного класса directory
+$cat = dir("../.vscode");
+while(($file = $cat->read()) !== false) {
+  echo $file. "</br>";
+}
+$cat->close();
 
 
 
