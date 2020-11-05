@@ -27,7 +27,8 @@
 <?php
 //СПРАВКА
 //exec - для запросов в которых не требуется возврат результата(INSERT)
-require 'config.php';
+//query - Не защищенный метод, используется для запросах в которых нет переменных
+require '../config.php';
 
 $dsn = "mysql:host =".HOST.";dbname=".DB_NAME.";charset =" .CHARSET;
 try{
@@ -79,6 +80,15 @@ $query = "INSERT INTO news_content VALUES (NULL, :content, :news_id)";
 $news = $dbconn->prepare($query);
 $news ->execute(['content' => $_POST['content'], 'news_id' => $news_id]);
 }
+//Черновик
+$sql = "SELECT user_name FROM users WHERE id = :id";
+$res = $dbconn -> prepare($sql);
+$param = ['id' => 1];
+$res->execute($param);
+while($r = $res->fetch()){
+    echo ":" .$r['user_name'];
+}
+
 
 
 
