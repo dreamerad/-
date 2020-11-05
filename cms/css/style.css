@@ -1,0 +1,439 @@
+/*
+-> Данный дизайн разработан дизайнером ANGRY.
+-> Для связи используйте Telegram: @angrystyle.
+*/
+@import  "https://fonts.googleapis.com/css?family=Open+Sans:400";
+body {
+  background: #42281f;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Open Sans',sans-serif;
+  font-size: 14px;
+  margin: 0 auto;
+  max-width: 364px;
+  line-height: 21px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #4a2f25;
+}
+
+a:hover {
+  color: #e8d363;
+  text-shadow: 0 1px 0 #4a2f25;
+  transition: .5s;
+}
+
+img {
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+p {
+  padding: 0;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-size: 29px;
+  font-weight: 300;
+  text-shadow: 0 1px 2px #67982f;
+}
+
+hr {
+  border: none;
+  margin: 24px 0 0;
+  border-bottom: 1px solid #634034;
+  border-top: 1px solid #3e271f;
+}
+
+snrong {
+  font-weight: 700;
+}
+
+::selection {
+  color: #fff;
+  background: #fff;
+}
+
+.shadow {
+  box-shadow: 0 0 7px 4px #3e251d;
+}
+
+.logo {
+  background: url(img/logo.png) center no-repeat;
+  height: 81px;
+  opacity: .7;
+}
+
+.logo:hover {
+  opacity: 1;
+  transition: .8s;
+}
+
+.foot-logo {
+  background: url(img/foot-logo.png) center no-repeat;
+  height: 95px;
+}
+
+.line {
+  background: url(img/line.png) left bottom repeat-x #a16b40;
+  height: 3px;
+}
+
+.content {
+  background: #5e3d31;
+  text-align: center;
+  padding: 20px 10px 20px 0;
+}
+
+.block {
+  background: #4f3127;
+  padding: 0 0 20px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Kelly+Slab);
+
+.gli   {
+  display: block;
+  position: relative;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #795244;
+  text-align: center;
+  color: #482d24;
+  font-size: 18px;
+  border-radius: 20px;
+  padding: 7px 10px;
+  text-shadow: 0 2px 0 #462d24;
+  font-family: 'Kelly Slab', cursive;
+  color: #fff;
+}
+
+.gl-obv{
+  padding: 20px 10px;
+  background: #482d24;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: -13px;
+  margin: -18px 10px 10px 20px;
+  border-radius: 13px;
+  border: 1px solid #35211a;
+  color: #dca692;
+  border-top: 1px solid #35211a;
+  border-bottom: 1px solid #794f40;
+  font-size: 13px;
+}
+
+.block-top {
+  background: #4f3127;
+  padding: 10px;
+}
+
+.icon-gl {
+  right: 87px;
+  top: 23px;
+  position: relative;
+  bottom: 1px;
+  color: #ead564;
+}
+
+.razmet {
+  width: 240px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.foot-gl-ic {
+  background: #e8d363;
+  color: #4f3127;
+  text-shadow: none;
+  padding: 10px 9px 13px 10px;
+  border-radius: 50%;
+  margin-right: 9px;
+}
+
+a.link {
+  display: block;
+  border-bottom: 1px solid #462b22;
+  padding: 10px 10px 10px 18px;
+}
+
+a.link:hover {
+  background: #5e3d31;
+  transition: .8s;
+}
+
+a.link p {
+  padding: 0;
+  display: inline-block;
+  margin: 0;
+  color: #d69985;
+}
+
+a.superlink {
+  background: url(img/superlink.png) left center no-repeat,url(img/super-l.png) bottom left repeat-x,url(img/super-l.png) top left repeat-x #62453c;
+  padding: 7px;
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  opacity: .7;
+}
+
+a.superlink:hover {
+  opacity: 1;
+  transition: .8s;
+}
+
+.foot-l {
+  padding: 20px 1px 10px 10px;
+  color: #fff;
+  text-shadow: 0 1px 0 #4a2f25;
+}
+
+.foot-l span {
+  color: #e8d363;
+}
+
+.count {
+  float: right;
+  padding: 3px;
+  width: 44px;
+  text-align: center;
+  border-top: 1px solid #231511;
+  border-bottom: 1px solid #614035;
+  background: #35211a;
+  border-radius: 3px;
+  margin: 0 17px 0 0;
+}
+
+.onli {
+  padding: 10px;
+}
+
+.top-head {
+  background: #5e3d31;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 3px 4px #462d24;
+  position: relative;
+  text-align: center;
+}
+.top-left {
+  background: #5e3d31;
+  color: #fff;
+  padding: 10px;
+  box-shadow: 0 3px 4px #462d24;
+  position: relative;
+  text-align: left;
+}
+
+.icon {
+  color: #e8d363;
+  font-size: 18px;
+}
+
+a.link-top {
+  display: block;
+  padding: 10px;
+  background: #e8d363;
+  border-radius: 4px;
+  color: #4f3127;
+  text-shadow: none;
+  margin-bottom: 10px;
+}
+
+a.link-top:hover {
+  background: #795548;
+  transition: .5s;
+  color: #fff;
+  text-shadow: 0 1px 0 #543b31;
+}
+
+a.lik {
+  display: inline-table;
+  margin: 0;
+}
+
+.time {
+  display: block;
+  position: relative;
+  width: 57px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #F44336;
+  text-align: center;
+  color: #fff;
+  border-radius: 20px;
+  padding: 3px 10px;
+  text-shadow: 0 1px 0 #801f18;
+}
+
+.obvodka {
+  padding: 20px 10px;
+  background: #482d24;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: -13px;
+  border: 1px solid rgba(244,67,54,0.33);
+}
+
+a.title {
+  display: block;
+  position: relative;
+  width: 171px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #8BC34A;
+  text-align: center;
+  color: #33481a;
+  border-radius: 20px;
+  padding: 3px 10px;
+  text-shadow: none;
+}
+
+a.title:hover {
+  color: #446124;
+  background: #b1ef6a;
+  transition: .5s;
+  text-shadow: none;
+}
+
+.to {
+  border: 1px solid rgba(139,195,74,0.39);
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #d1f1ad;
+}
+
+.ti {
+  float: left;
+  color: #3c261d;
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  top: 0;
+  padding: 10px 10px 7px;
+  background: #e8d363;
+  box-shadow: 2px 0 1px #482d24;
+}
+
+.tii {
+  float: right;
+  color: #3c261d;
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  top: 0;
+  padding: 10px 10px 7px;
+  background: #e8d363;
+  box-shadow: -2px 0 1px #482d24;
+}
+
+.f-i {
+  padding: 5px 5px 8px;
+  background: none;
+  color: #e8d363;
+}
+
+a.li-li {
+  padding: 11px 10px 11px 18px;
+}
+
+.chet {
+  padding: 10px;
+  text-align: center;
+  background: #3c241c;
+  box-shadow: 0 2px 2px #331f18 inset;
+}
+
+.chet a img {
+  opacity: .5;
+}
+
+.chet a img:hover {
+  opacity: 1;
+  transition: .8s;
+}
+
+a.head-li {
+  display: inline-table;
+  padding: 10px;
+}
+
+a.head-li:hover {
+  background: #754e40;
+  transition: .8s;
+}
+
+.n-p {
+  padding: 0;
+}
+
+input.gl {
+  background: #442b22;
+  border: none;
+  padding: 10px 10px 10px 52px;
+  border-radius: 4px;
+  margin: 5px;
+  border-top: 1px solid #351c14;
+  border-bottom: 1px solid #674537;
+  color: #fff;
+  margin-top: -31px;
+}
+
+input.gl:hover {
+  background-color: #4a3027;
+  transition: .8s;
+}
+
+input.sub-gl {
+  background: url(img/t-l.png) left center no-repeat,url(img/t-r.png) right center no-repeat #e8d363;
+  border: none;
+  border-radius: 4px;
+  width: 230px;
+  padding: 10px;
+  margin-left: 6px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  display: block;
+  color: #4f3127;
+}
+
+input.sub-gl:hover {
+  background: url(img/t-h-l.png) left center no-repeat,url(img/t-h-r.png) right center no-repeat #e8d363;
+  transition: .5s;
+  color: #5a5224;
+  text-shadow: 0px 2px 0px #ecdd87;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot);
+/* For IE6-8 */
+  src: local('Material Icons'),local(MaterialIcons-Regular),url(https://example.com/MaterialIcons-Regular.woff2) format("woff2"),url(https://example.com/MaterialIcons-Regular.woff) format("woff"),url(https://example.com/MaterialIcons-Regular.ttf) format("truetype");
+}
+
+.material-icons {
+  vertical-align: middle;
+  font-family: 'Material Icons';
+  font-weight: 200;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: liga;
+}
