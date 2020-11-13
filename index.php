@@ -10,11 +10,10 @@ else {
     exit('error url');
 }
 session_start();
-git commit-m "first commit"
 
 if(file_exists('all/' .$page. '.php')) include 'all/' .$page. '.php';
 else if($_SESSION['ulogin'] == 1 and file_exists('auth/' .$page. '.php')) include 'auth/' .$page. '.php';
 else if($_SESSION['ulogin'] != 1 and file_exists('quest/' .$page. '.php')) include 'quest/' .$page. '.php';
 else exit('Страница 404');
-gigi
+    
 ?>
