@@ -41,22 +41,22 @@
     <div class="jumbotron">
         <div class="row">
             <div class="col-lg-4 col-md-4"></div>
-            <div class="col-lg-8 col-md-8">
+            <div class="col-lg-8 col-md-8 col-xs-8">
 
            
         
     <div class="container">
-        <form method = "POST" role="form" class="form-horizontal " style="margin: 20px 0 0  0;">
+        <form method = "POST" role="form" class="form-horizontal col-md-5 " style="margin: 20px 0 0  0;">
             <div class="form-group ">
                 
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                     <label class="control-label" for="login">Логин</label>
                     <input type="text" class="form-control" placeholder="Введите логин" id="login" name="login">
                 </div>
             </div>
             <div class="form-group ">
               
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                     <label class="control-label" for="mail">Почта</label>
                     <input type="mail" class="form-control" placeholder="Введите E-mail" id="mail" name="email">
                 </div> 
@@ -65,25 +65,25 @@
             
 
             <div class="form-group ">
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                 <label class="control-label">Пароль</label>
                 <input type="password" class="form-control" placeholder="Введите пароль" name="password">
             </div></div>
             <div class="form-group ">
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                 <label class="control-label">Повторите пароль</label>
                 <input type="password" class="form-control" placeholder="Введите ёще раз пароль" name="password2">
             </div>
             </div>
             <div class="radio-inline ">
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                 <label class="control-label text-center">
                         <input type="radio"  value="0" name="sex"> Мужской
                 </label>
                  </div>
             </div>
             <div class="radio-inline">
-                <div class="col-lg-5 col-sm-6 col-xs-8 col-md-6">
+                <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
                 <label class="control-label text-center">
                         <input type="radio" value="1"  name="sex"> Женский
                 </label>
@@ -91,17 +91,28 @@
             </div>
             <br> <br>
            
-                <button type = "submit" name = "go" class="btn btn-success col-lg-3 col-sm-4 col-xs-5 col-md-4" style="margin:  0 0 0 22px">Подтвердить <i class="glyphicon glyphicon-chevron-right"></i></button></div>
+                <button type = "submit" name = "go" class="btn btn-success col-lg-3 col-sm-4 col-xs-5 col-md-4 btn-block" >Подтвердить <i class="glyphicon glyphicon-chevron-right"></i></button>
+            </form>
+            
+            </div>
+           
+              
+        
+        </div>
            
               
                
-            </div>
+            
            
-          </form>
-         </div>
-        </div>
-    </div> 
+    </div>       
+            
+    
 </div>
+           
+          
+         
+        
+ 
 <div class="container">
     
                 <div class="row">
